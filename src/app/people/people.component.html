@@ -1,3 +1,8 @@
-<p>
-  people works!
-</p>
+<h1>People List</h1>
+
+
+<ul *ngFor="let person of people | async">
+  <li class="text">
+    {{ person.name_first }} {{ person.name_last }}
+  </li>
+</ul>

@@ -1,3 +1,13 @@
+<div class=header>
+  <div *ngIf="af.auth | async">
+    <button>Log Out</button>
+  </div>
+ 
+  <div *ngIf="!(af.auth | async)">
+    <button (click)="af.auth.login()" >Log In</button>
+  </div>
+</div>
+
 <h1>
   {{title}}
 </h1>
