@@ -1,5 +1,3 @@
-.header {
-    background-color: lightgray;
-    color: darkgray;
-    padding: 10px;
+.navbar-static-top {
+    margin-bottom: 0;
 }
