@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Title }     from '@angular/platform-browser';
 import {Routes, ROUTER_DIRECTIVES} from '@angular/router';
 import {AngularFire} from 'angularfire2';
 import {Observable} from 'rxjs/Observable';
@@ -20,8 +21,8 @@ export class TestProjectAppComponent {
   
   title = 'test-project works!';
   
-  constructor(public af: AngularFire) {
-
+  constructor(public af: AngularFire, private titleService: Title) {
+    this.titleService.setTitle( "Angular 2 (test-project)" );
   }
  
 }

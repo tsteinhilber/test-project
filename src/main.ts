@@ -1,4 +1,5 @@
 import { bootstrap } from '@angular/platform-browser-dynamic';
+import { Title } from '@angular/platform-browser';
 import { enableProdMode } from '@angular/core';
 import { environment } from './app/';
 import { TestProjectAppComponent} from './app/';
@@ -17,6 +18,7 @@ if (environment.production) {
 }
 
 bootstrap(TestProjectAppComponent, [
+  Title,
   ROUTER_PROVIDERS,
   FIREBASE_PROVIDERS,
   defaultFirebase('angularfire-seed-test.firebaseio.com'),
