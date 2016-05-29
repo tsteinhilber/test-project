@@ -20,5 +20,10 @@ export class PeopleComponent implements OnInit {
   ngOnInit() {
 
   }
+  
+  onSelect(person){
+    console.log(person);
+    // alert(person.name_first);
+  }
 
 }

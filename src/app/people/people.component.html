@@ -1,7 +1,7 @@
 <h1>People</h1>
 
 <div class="list-group">
-  <a href="#" class="list-group-item" *ngFor="let person of people | async">
+  <a (click)="onSelect(person)" class="list-group-item" *ngFor="let person of people | async">
     <h4 class="list-group-item-heading">{{ person.name_first }} {{ person.name_last }}</h4>
     <p class="list-group-item-text">{{ person.email }}</p>
     <p class="list-group-item-text">{{ person.nickname }}</p>
