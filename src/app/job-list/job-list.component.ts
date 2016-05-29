@@ -2,11 +2,12 @@ import { Component, OnInit, Input } from '@angular/core';
 import {AngularFire} from 'angularfire2';
 import {Observable} from 'rxjs/Observable';
 import {JobComponent} from '../job/job.component';
+import {JobFormComponent} from '../job-form/job-form.component';
 
 @Component({
   moduleId: module.id,
   selector: 'app-job-list',
-  directives: [JobComponent],
+  directives: [JobComponent, JobFormComponent],
   templateUrl: 'job-list.component.html',
   styleUrls: ['job-list.component.css']
 })
