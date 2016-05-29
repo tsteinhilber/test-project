@@ -36,11 +36,11 @@ const barrels: string[] = [
   'app',
   'app/shared',
   'app/people/people',
-  'app/jobs',
   'app/shared/header',
   'app/shared/footer',
   'app/jobs/job-list',
   'app/job',
+  'app/job-form',
   /** @cli-barrel */
 ];
 
