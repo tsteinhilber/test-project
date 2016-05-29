@@ -3,7 +3,7 @@ import {Routes, ROUTER_DIRECTIVES} from '@angular/router';
 import {AngularFire} from 'angularfire2';
 import {Observable} from 'rxjs/Observable';
 import { PeopleComponent } from './people/people.component'
-import { JobsComponent } from './jobs/jobs.component'
+import { JobListComponent } from './job-list/job-list.component'
 import { HeaderComponent } from './shared/header/header.component'
 import { FooterComponent } from './shared/footer/footer.component'
 
@@ -12,7 +12,7 @@ import { FooterComponent } from './shared/footer/footer.component'
   selector: 'test-project-app',
   templateUrl: 'test-project.component.html',
   styleUrls: ['test-project.component.css'],
-  directives: [ROUTER_DIRECTIVES, FooterComponent, HeaderComponent, JobsComponent, PeopleComponent],
+  directives: [ROUTER_DIRECTIVES, FooterComponent, HeaderComponent, JobListComponent, PeopleComponent],
   pipes: []
 })
 
