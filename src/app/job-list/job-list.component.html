@@ -1,8 +1,12 @@
 <h1>Job-List</h1>
-
+<!--
 <div class="list-group">
   <a href=" {{ job.text }}" class="list-group-item" *ngFor="let job of jobs | async">
     <h4 class="list-group-item-heading"> {{ job.text }}</h4>
     <p class="list-group-item-text">{{ job.lyric }}</p>
   </a>
+</div>-->
+
+<div class="list-group">
+  <app-job [job] = "job" *ngFor="let job of jobs | async" (click)="onClick(job)" class="list-group-item" ></app-job>
 </div>
