@@ -13,10 +13,10 @@ import {JobFormComponent} from '../job-form/job-form.component';
 })
 export class JobListComponent implements OnInit {
 
-  jobs: Observable<any[]>;
+  jobList: Observable<any[]>;
   
-  constructor(public af: AngularFire) {
-    this.jobs = af.list('/messages');
+  constructor(af: AngularFire) {
+    this.jobList = af.list('/messages');
   }
 
   ngOnInit() {

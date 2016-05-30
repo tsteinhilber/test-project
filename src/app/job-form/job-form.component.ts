@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {AngularFire, FirebaseListObservable} from 'angularfire2';
+import {Observable} from 'rxjs/Observable';
 
 @Component({
   moduleId: module.id,
@@ -8,9 +10,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class JobFormComponent implements OnInit {
 
-  constructor() {}
+  private _jobList: FirebaseListObservable<any[]>;
+  
+  constructor(private _af: AngularFire) {
+        this._jobList = _af.database.list('/messages');
+    }
 
   ngOnInit() {
+  }
+  
+  addNew(item: any){
+      this._jobList.push(item);
+      console.log(item);
+  }
+
+  updateMe(item: any){
+      this._jobList.update(item, { value: 5});
+  }
+
+  removeMe(item: any){
+      this._jobList.remove(item);
   }
 
 }
