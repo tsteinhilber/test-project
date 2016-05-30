@@ -2,15 +2,16 @@
 
 <form [ngFormModel]="form" (ngSubmit)="addNew(form.value)">
   
-    <div class="form-group" [ngClass]="{'has-error': text.errors?.pattern, 'has-success': !lyric.errors?.pattern}">
-      <label class="control-label" for="text">Text</label>
-      <input ngControl="text" #text="ngForm" type="text" id="text" class="form-control">
-      <div class="help-block" *ngIf="text.errors?.pattern">Text has invalid characters</div>
+    <div class="form-group" [ngClass]="{'has-error': name.errors?.pattern, 'has-success': !name.errors?.pattern}">
+      <label class="control-label" for="name">Name</label>
+      <input ngControl="name" #name="ngForm" type="text" id="name" class="form-control">
+      <div class="help-block" *ngIf="name.errors?.pattern">Job Name has invalid characters</div>
     </div>
-    <div class="form-group" [ngClass]="{'has-error': lyric.errors?.required, 'has-success': lyric.valid}">
-       <label class="control-label" for="text">Lyric</label>
-      <input ngControl="lyric" #lyric="ngForm" type="text" id="lyric" class="form-control">
-      <div class="help-block" *ngIf="lyric.errors?.required">Lyric is required</div>
+    
+    <div class="form-group" [ngClass]="{'has-error': type.errors?.required, 'has-success': !type.errors}">
+       <label class="control-label" for="name">type</label>
+      <input ngControl="type" #type="ngForm" type="text" id="type" class="form-control">
+      <div class="help-block" *ngIf="type.errors?.required">Job Type is required</div>
     </div>
     <button type="submit" class="btn btn-primary"  [disabled]="!form.valid">Add</button>
     

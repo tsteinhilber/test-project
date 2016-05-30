@@ -15,7 +15,7 @@ export class JobListComponent implements OnInit {
   private _jobList: FirebaseListObservable<any[]>;
   
   constructor(private af: AngularFire) {
-    this._jobList = af.list('/messages');
+    this._jobList = af.list('/jobs');
   }
 
   ngOnInit() {

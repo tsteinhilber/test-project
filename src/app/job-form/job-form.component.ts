@@ -16,7 +16,7 @@ export class JobFormComponent implements OnInit {
   private _jobList: FirebaseListObservable<any[]>;
   
   constructor(private _af: AngularFire) {
-        this._jobList = _af.database.list('/messages');
+        this._jobList = _af.database.list('/jobs');
     }
 
   ngOnInit() {
@@ -25,19 +25,19 @@ export class JobFormComponent implements OnInit {
   
   buildForm():void {
     this.form = new ControlGroup({
-      'text' : new Control('', Validators.compose([
+      'name' : new Control('', Validators.compose([
         Validators.required,
         Validators.pattern('[\\w\\-\\s\\/]+')
       ])),
-      'lyric' : new Control('', Validators.required)
+      'type' : new Control('', Validators.required)
     });
   }
   
   addNew(item: any){
       this._jobList.push(item);
       console.log(item);
-      this.form.text = "";
-      this.form.lyric = "";
+      this.form.name = "";
+      this.form.type = "";
       
   }
 
