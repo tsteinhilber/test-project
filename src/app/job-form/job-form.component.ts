@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import {AngularFire, FirebaseListObservable} from 'angularfire2';
-import {Observable} from 'rxjs/Observable';
 
 @Component({
   moduleId: module.id,
