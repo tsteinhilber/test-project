@@ -1,22 +1,17 @@
 <h2>Job Form</h2>
 
-<!--<form #form="ngForm" (ngSubmit)="addNew(form.value)" novalidate>
-  <label>Value:</label>
-  <input type="text" ngControl="text" required>
-  <input type="text" ngControl="lyric" required>
-  <button type="submit" [disabled]="!form.form.valid">Add</button>
-</form>-->
-
-<form #form="ngForm" (ngSubmit)="addNew(form.value)">
+<form [ngFormModel]="form" (ngSubmit)="addNew(form.value)">
   
-    <div class="form-group">
-      <label for="text">Text</label>
-      <input  ngControl="text" type="text" class="form-control" required>
+    <div class="form-group" [ngClass]="{'has-error': text.errors?.pattern, 'has-success': !lyric.errors?.pattern}">
+      <label class="control-label" for="text">Text</label>
+      <input ngControl="text" #text="ngForm" type="text" id="text" class="form-control">
+      <div class="help-block" *ngIf="text.errors?.pattern">Text has invalid characters</div>
     </div>
-    <div class="form-group">
-       <label for="text">Lyric</label>
-      <input ngControl="lyric" type="text" class="form-control">
+    <div class="form-group" [ngClass]="{'has-error': lyric.errors?.required, 'has-success': lyric.valid}">
+       <label class="control-label" for="text">Lyric</label>
+      <input ngControl="lyric" #lyric="ngForm" type="text" id="lyric" class="form-control">
+      <div class="help-block" *ngIf="lyric.errors?.required">Lyric is required</div>
     </div>
-    <button type="submit" class="btn btn-primary"  [disabled]="!form.form.valid">Add</button>
+    <button type="submit" class="btn btn-primary"  [disabled]="!form.valid">Add</button>
     
 </form>

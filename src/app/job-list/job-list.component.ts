@@ -1,6 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import {AngularFire} from 'angularfire2';
-import {Observable} from 'rxjs/Observable';
+import {AngularFire, FirebaseListObservable} from 'angularfire2';
 import {JobComponent} from '../job/job.component';
 import {JobFormComponent} from '../job-form/job-form.component';
 
@@ -13,10 +12,10 @@ import {JobFormComponent} from '../job-form/job-form.component';
 })
 export class JobListComponent implements OnInit {
 
-  jobList: Observable<any[]>;
+  private _jobList: FirebaseListObservable<any[]>;
   
-  constructor(af: AngularFire) {
-    this.jobList = af.list('/messages');
+  constructor(private af: AngularFire) {
+    this._jobList = af.list('/messages');
   }
 
   ngOnInit() {
@@ -24,6 +23,15 @@ export class JobListComponent implements OnInit {
   
   onClick(obj){
     console.log("clicked " + obj.text);
+  }
+  
+  removeMe(item: any){
+    this._jobList.remove(item);
+  }
+  
+  myValueChange(event) {
+    console.log(event);
+    this._jobList.remove(event);
   }
 
 }
