@@ -14,13 +14,12 @@
     <label class="control-label" for="name">category</label>
     
     <select class="form-control" ngControl="category" #category="ngForm" id="category">
-      <option value="">Please Choose</option>
-      <option value="">-</option>
-      <option value="hair">Hair</option>
-      <option value="makeup">Makeup</option>
-      <option value="illustration">Illustration</option>
-      <option value="photo">Photo</option>
-      <option value="miscellaneous">Miscellaneous</option>
+      <option value="" disabled>Please Choose</option>
+      <option value="Hair">Hair</option>
+      <option value="Makeup">Makeup</option>
+      <option value="Illustration">Illustration</option>
+      <option value="Photo">Photo</option>
+      <option value="Miscellaneous">Miscellaneous</option>
     </select>
   
     <div class="help-block" *ngIf="category.errors?.required">Job category is required</div>
