@@ -1,18 +1,39 @@
-<h2>Job Form</h2>
+<h2>Job</h2>
 
 <form [ngFormModel]="form" (ngSubmit)="addNew(form.value)">
   
-    <div class="form-group" [ngClass]="{'has-error': name.errors?.pattern, 'has-success': !name.errors?.pattern}">
-      <label class="control-label" for="name">Name</label>
-      <input ngControl="name" #name="ngForm" type="text" id="name" class="form-control">
-      <div class="help-block" *ngIf="name.errors?.pattern">Job Name has invalid characters</div>
-    </div>
+  <!--NAME-->
+  <div class="form-group" [ngClass]="{'has-error': name.errors?.pattern, 'has-success': name.valid}">
+    <label class="control-label" for="name">Name</label>
+    <input ngControl="name" #name="ngForm" type="text" id="name" class="form-control">
+    <div class="help-block" *ngIf="name.errors?.pattern">Job Name has invalid characters</div>
+  </div>
+
+  <!--CATEGORY-->
+  <div class="form-group" [ngClass]="{'has-error': category.errors?.required, 'has-success': !category.errors}">
+    <label class="control-label" for="name">category</label>
     
-    <div class="form-group" [ngClass]="{'has-error': type.errors?.required, 'has-success': !type.errors}">
-       <label class="control-label" for="name">type</label>
-      <input ngControl="type" #type="ngForm" type="text" id="type" class="form-control">
-      <div class="help-block" *ngIf="type.errors?.required">Job Type is required</div>
-    </div>
-    <button type="submit" class="btn btn-primary"  [disabled]="!form.valid">Add</button>
+    <select class="form-control" ngControl="category" #category="ngForm" id="category">
+      <option value="">Please Choose</option>
+      <option value="">-</option>
+      <option value="hair">Hair</option>
+      <option value="makeup">Makeup</option>
+      <option value="illustration">Illustration</option>
+      <option value="photo">Photo</option>
+      <option value="miscellaneous">Miscellaneous</option>
+    </select>
+  
+    <div class="help-block" *ngIf="category.errors?.required">Job category is required</div>
+  </div>
+
+  <!--REPRESENTATIVE-->
+  <div class="form-group" [ngClass]="{'has-error': rep.errors?.required, 'has-success': !rep.errors}">
+    <label class="control-label" for="name">rep</label>
+    <input ngControl="rep" #rep="ngForm" type="text" id="rep" class="form-control">
+    <div class="help-block" *ngIf="rep.errors?.required">Job rep is required</div>
+  </div>
+
+  <!-- SUBMIT -->
+  <button type="submit" class="btn btn-primary" [disabled]="!form.valid">Add Job</button>
     
 </form>

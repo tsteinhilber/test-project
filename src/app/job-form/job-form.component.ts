@@ -29,7 +29,8 @@ export class JobFormComponent implements OnInit {
         Validators.required,
         Validators.pattern('[\\w\\-\\s\\/]+')
       ])),
-      'type' : new Control('', Validators.required)
+      'category' : new Control('', Validators.required),
+      'rep' : new Control('', Validators.required)
     });
   }
   
@@ -37,7 +38,8 @@ export class JobFormComponent implements OnInit {
       this._jobList.push(item);
       console.log(item);
       this.form.name = "";
-      this.form.type = "";
+      this.form.category = "";
+      this.form.rep = "";
       
   }
 

@@ -25,11 +25,7 @@ export class JobListComponent implements OnInit {
     console.log("clicked " + obj.text);
   }
   
-  removeMe(item: any){
-    this._jobList.remove(item);
-  }
-  
-  myValueChange(event) {
+  removeMe(event) {
     console.log(event);
     this._jobList.remove(event);
   }

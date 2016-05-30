@@ -1,9 +1,10 @@
-<app-job-form></app-job-form>
+<app-job-form>Loading form...</app-job-form>
+
 
 <hr>
 
 <h1>Job-List</h1>
 
 <div class="list-group">
-  <app-job [job] = "job" *ngFor="let job of _jobList | async"  class="list-group-item" (delete)="myValueChange($event);"></app-job>
+  <app-job [job] = "job" *ngFor="let job of _jobList | async"  class="list-group-item" (delete)="removeMe($event);"></app-job>
 </div>
