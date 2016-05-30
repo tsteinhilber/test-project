@@ -14,9 +14,11 @@ export class JobFormComponent implements OnInit {
   form;
 
   private _jobList: FirebaseListObservable<any[]>;
+  private _personList: FirebaseListObservable<any[]>;
   
   constructor(private _af: AngularFire) {
         this._jobList = _af.database.list('/jobs');
+        this._personList = _af.database.list('/people');
     }
 
   ngOnInit() {
