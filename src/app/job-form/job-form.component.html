@@ -11,7 +11,7 @@
 
   <!--CATEGORY-->
   <div class="form-group" [ngClass]="{'has-error': category.errors?.required, 'has-success': !category.errors}">
-    <label class="control-label" for="name">category</label>
+    <label class="control-label" for="category">category</label>
     
     <select class="form-control" ngControl="category" #category="ngForm" id="category">
       <option value="" disabled>Please Choose</option>
@@ -24,13 +24,25 @@
   
     <div class="help-block" *ngIf="category.errors?.required">Job category is required</div>
   </div>
+  
+  <!--REP SELECT-->
+  <div class="form-group" [ngClass]="{'has-error': rep.errors?.required, 'has-success': !rep.errors}">
+    <label class="control-label" for="rep">representative</label>
+    
+    <select class="form-control" ngControl="rep" #rep="ngForm" id="category">
+      <option value="" disabled>Please Choose</option>
+      <option value="{{ person.$key }}" *ngFor="let person of _peopleList | async">{{ person.name_first }} {{ person.name_last }}</option>
+    </select>
+  
+    <div class="help-block" *ngIf="rep.errors?.required">Job rep is required</div>
+  </div>
 
   <!--REPRESENTATIVE-->
-  <div class="form-group" [ngClass]="{'has-error': rep.errors?.required, 'has-success': !rep.errors}">
+  <!--<div class="form-group" [ngClass]="{'has-error': rep.errors?.required, 'has-success': !rep.errors}">
     <label class="control-label" for="name">rep</label>
     <input ngControl="rep" #rep="ngForm" type="text" id="rep" class="form-control">
     <div class="help-block" *ngIf="rep.errors?.required">Job rep is required</div>
-  </div>
+  </div>-->
 
   <!-- SUBMIT -->
   <button type="submit" class="btn btn-primary" [disabled]="!form.valid">Add Job</button>
