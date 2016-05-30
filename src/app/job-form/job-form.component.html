@@ -37,13 +37,6 @@
     <div class="help-block" *ngIf="rep.errors?.required">Job rep is required</div>
   </div>
 
-  <!--REPRESENTATIVE-->
-  <!--<div class="form-group" [ngClass]="{'has-error': rep.errors?.required, 'has-success': !rep.errors}">
-    <label class="control-label" for="name">rep</label>
-    <input ngControl="rep" #rep="ngForm" type="text" id="rep" class="form-control">
-    <div class="help-block" *ngIf="rep.errors?.required">Job rep is required</div>
-  </div>-->
-
   <!-- SUBMIT -->
   <button type="submit" class="btn btn-primary" [disabled]="!form.valid">Add Job</button>
     
